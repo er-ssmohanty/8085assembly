@@ -17,9 +17,11 @@
 ;;D register acts as the temporary variable.
 
 ;------INITIALISATION------;
-start:  mvi b, 10    
-	mov c, b     
-	lxi d, 3000H  
+start:  lxi d, 3000H
+	mvi b, 4 
+
+sort:	push d ;++
+	mov c, b       
 	mov h,d
 	mov l,e	     
 	mov a,m	     
@@ -30,8 +32,8 @@ max:    inx h
 	cmp m
 	jnc skip
 	mov a,m
-	push h
 skip:	dcr c
+	push h ;++
 	jnz max
 ;--------------------------;
 
@@ -42,6 +44,9 @@ skip:	dcr c
 	mov d,m
 	mov m,a;exchange the values of a and m
 	mov a,d
-	pop h
+	pop h ;--
 	mov m, a
-skip2:	hlt
+skip2:	pop d ;--
+	dcr b
+	jnz sort
+	hlt
