@@ -17,7 +17,7 @@
 ;;D register acts as the temporary variable.
 
 ;------INITIALISATION------;
-start:  mov b, 10    
+start:  mvi b, 10    
 	mov c, b     
 	lxi d, 3000H  
 	mov h,d
@@ -40,9 +40,8 @@ skip:	dcr c
 	;carry and zero are reset
 	jc skip2
 	mov d,m
-	mov m,a
+	mov m,a;exchange the values of a and m
 	mov a,d
-skip2:
-	inx h
-	mov m,a
-	hlt
+	pop h
+	mov m, a
+skip2:	hlt
