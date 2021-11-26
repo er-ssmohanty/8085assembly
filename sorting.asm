@@ -1,9 +1,15 @@
-start:  mov b, 10	;b reg holds block size
-	mov c, b	;c reg is the counter
-	lxi d, 3000H;de pair has the largest value 
+;;DE register pair has the address of the largest 
+;value. 
+;;B register holds the block size. 
+;;C register acts as a counter. 
+;;HL register pair has the current value. 
+;;A(accumulator) register holds the maximum value.
+start:  mov b, 10    
+	mov c, b     
+	lxi d, 3000H  
 	mov h,d
-	mov l,e	    ;hl pair has the current value
-	mov a,m
+	mov l,e	     
+	mov a,m	     
 	
 
 max:    inx h
