@@ -1,21 +1,6 @@
-start:  lxi b, 3000H
-	mvi d, 10
+start:  mov c, 10
+	lxi d, 3000H;de pair has the largest value 
+	mov h,d
+	mov l,e	    ;hl pair has the current value
+	mov a,m
 	
-	sort:	mov h, b
-		mov l, c
-		mov e, d
-		mov a,m	
-
-		bignum: inx h
-			cmp m
-			jnc skip
-			mov a,m
-		skip:	dcr e
-			jnz bignum	
-	
-		inx h
-		mov m,a
-		inx b
-		dcr d
-		jnz sort
-	hlt
