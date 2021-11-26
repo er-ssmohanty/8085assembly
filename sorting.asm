@@ -1,5 +1,5 @@
-;;DE register pair has the address of the largest 
-;value. 
+;;The topmost two locations of the stack 
+;have the address of the largest value. 
 ;;B register holds the block size. 
 ;;C register acts as a counter. 
 ;;HL register pair has the current value. 
@@ -19,10 +19,13 @@ max:    inx h
 	cmp m
 	jnc skip
 	mov a,m
+	push h
 skip:	dcr c
-
 	jnz max
-	
+;--------------------------;
+
+	cmp m	
+
 	inx h
 	mov m,a
 	hlt
