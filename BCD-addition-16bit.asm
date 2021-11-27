@@ -1,7 +1,7 @@
 start:  lhld 3000H
 	xchg	
 	lhld 3002H
-	mov c,0H
+	mvi c,0H
 
 	mov a,e
 	add l
