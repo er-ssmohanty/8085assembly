@@ -38,9 +38,9 @@ skip:	dcr c ;++
 	jnz max
 ;--------------------------;
 ;-replacing the last number with the largest-;	
-	mov e,a;e has largest
+	mov c,a;c has largest
 	mov a,m;a has last
-	mov m,e;largest value in the last
+	mov m,c;largest value in the last
 	stax d;last value gets place of largest;
 	;move 
 	pop d ;--
