@@ -23,7 +23,7 @@ start:  lxi d, 3000H
 sort:	push d ;++
 	mov c, b       
 	mov h,d
-	mov l,e	     
+	mov l,e  
 	mov a,m	     
 ;--------------------------;
 	
@@ -32,21 +32,18 @@ max:    inx h
 	cmp m
 	jnc skip
 	mov a,m
-skip:	dcr c
-	push h ;++
+	mov d,h
+	mov e,l
+skip:	dcr c ;++
 	jnz max
 ;--------------------------;
-
-	cmp m	
-	; if max value is greater than current 
-	;carry and zero are reset
-	jc skip2
-	mov d,m
-	mov m,a;exchange the values of a and m
-	mov a,d
-	pop h ;--
-	mov m, a
-skip2:	pop d ;--
+;-replacing the last number with the largest-;	
+	mov e,a;e has largest
+	mov a,m;a has last
+	mov m,e;largest value in the last
+	stax d;last value gets place of largest;
+	;move 
+	pop d ;--
 	dcr b
 	jnz sort
 	hlt
