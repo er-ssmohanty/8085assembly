@@ -1,25 +1,21 @@
-start:  lxi h,3000H
-	sub a
-	add m
-	inx h
-	inx h
-	add m
+start:  lhld 3000H
+	xchg	
+	lhld 3002H
+	mov c,0H
+
+	mov a,e
+	add l
 	daa
-	inx h
-	inx h
-	mov m,a
-	dcx h
-	sub a
-	adc m
-	dcx h
-	dcx h
-	add m
+	mov l,a
+	
+	mov a,d
+	adc h
 	daa
-	inx h
-	inx h
-	inx h
-	mov m,a
+	mov h,a		
+	
+	shld 3004H
 	jnc skip
-	inx h
-	inr m
-skip:	hlt
+	inr c	
+skip:	mov a,c
+	sta 3006H
+	hlt
