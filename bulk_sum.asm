@@ -1,7 +1,8 @@
 start:  lxi h, 3000H ;starting location of the block
 	mvi c, 5 ; block size
 	mvi b, 0
-
+	mvi a, 0	
+	
 loop:   add m
 	jnc skip
 	inr b	
