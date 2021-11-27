@@ -3,12 +3,15 @@
 
 
 ;------DESCRIPTION--------;
-
-start:  lxi d, 0000H
+;;BC register pair hold the address of past value
+;;HL reg. pair hold the address of current value
+;;DE hold
+start:  lxi d, 3000H
 	mov h,d
 	mov l,e
+	mvi a,6
 	
-loop:
+loop:	mov d,a
 	mov a,m
 	mov b,h
 	mov c,l
@@ -19,9 +22,9 @@ loop:
 	mov a,m ;a=m
 	mov m,e ;m=a past
 	stax b
-skip:   
+skip:   dcr d
 	;if m>a, carry=1 else carry = 0
-
+	jnz loop
 
 	
 	hlt
