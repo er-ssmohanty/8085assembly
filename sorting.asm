@@ -17,8 +17,8 @@
 ;;D register acts as the temporary variable.
 
 ;------INITIALISATION------;
-start:  lxi d, 3000H
-	mvi b, 4 
+start:  lxi d, 3000H ;block start location
+	mvi b, 4     ;block size-1
 
 sort:	push d ;++
 	mov c, b       
