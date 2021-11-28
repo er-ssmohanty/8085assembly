@@ -1,4 +1,4 @@
-loop:   mvi a,C0H
+loop:   mvi a,0C0H
 	sim
 	call delay
 	mvi a,40H
