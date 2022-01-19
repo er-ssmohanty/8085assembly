@@ -4,7 +4,7 @@
 jmp start
 
 ;data
-
+;
 
 ;code
 start:  lxi h, 2000H
@@ -12,6 +12,7 @@ start:  lxi h, 2000H
 	inx h
 	mov c, m
 	sub a
+	mov d,a
 loop:	add c
 	jnc skip
 	inr d
